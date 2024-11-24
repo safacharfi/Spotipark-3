@@ -9325,12 +9325,12 @@
     "5777": {
       "events": {},
       "links": {},
-      "address": "0x668Be9ff4d8055F64ebE0E202c042CC99b0C4CcC",
-      "transactionHash": "0x06bffc3f8ff74b8030d19cf8a3e4e0578eb41b1eba31124985b723d5d45c793e"
+      "address": "0xb5E42DBC0A1EE701b68F2f2371e7A5a57CEc2A47",
+      "transactionHash": "0x7afb88343d656ff6a415016ba441b4b2ead86defe58084db811a6a0131a8bf93"
     }
   },
   "schemaVersion": "3.4.16",
-  "updatedAt": "2024-04-16T07:47:02.491Z",
+  "updatedAt": "2024-11-24T11:34:03.550Z",
   "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",

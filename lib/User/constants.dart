@@ -6,6 +6,6 @@ String nftStorageApiKey =
 
 const String rpcUrl ="http://127.0.0.1:7545";
 
-const String contractAddress = "0x104B5E9404F6061d263b8cB6d3A37856337211DD";
+const String contractAddress = "0xb5E42DBC0A1EE701b68F2f2371e7A5a57CEc2A47";
 
 const int chainId = 1337; //Polygon testnet-80001, local ganache-1337

@@ -3,10 +3,6 @@ import '/landingScreen/components/header.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../components/jumbotron.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import '/Admin/constant/utils.dart';
-import '/Admin/screens/registerUser.dart';
-import '/Admin/screens/wallet_connect.dart';
-import '/Admin/screens/addLandInspector.dart';
 import '/User/BoardingScreen/page/onboarding_page.dart';
 
 class BoardingScreen extends StatelessWidget {

@@ -15205,12 +15205,12 @@
     "5777": {
       "events": {},
       "links": {},
-      "address": "0x80e88C08E8E7Ff37e6020e12ffB607D965f1dD86",
-      "transactionHash": "0xb307a2e5a21715ad0abe98fcc4550ab2150995c00e89d5d678afbdee7a2018f3"
+      "address": "0xa0274c17cF931fc0f67880E5e23Ca29bF45fD9e1",
+      "transactionHash": "0x8323d18ea1f041ac2db238262a2a4740e4192a74e9fe7f6a1f06a606be949f6c"
     }
   },
   "schemaVersion": "3.4.16",
-  "updatedAt": "2024-04-16T07:47:02.189Z",
+  "updatedAt": "2024-11-24T11:34:03.305Z",
   "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",

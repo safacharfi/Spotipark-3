@@ -10,7 +10,7 @@ class balanceLinking extends ChangeNotifier {
   final String _rpcUrl = "http://127.0.0.1:7545";
   final String _wsUrl = "ws://127.0.0.1:7545";
   final String _privateKey =
-      "0xf7fb8d9eebe6a811266fad95824793f65ab4419c4cd0651182b20dbfb96a1bfa";
+      "0x9ef8e5b39f1289f680040988f2364a0cbe8de767150feccabf1b36f2007ecded";
 
   late Web3Client _client;
   late String _abiCode;
