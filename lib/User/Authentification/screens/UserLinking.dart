@@ -14,7 +14,7 @@ class UserController extends ChangeNotifier {
   final String _rpcUrl = "http://127.0.0.1:7545";
   final String _wsUrl = "ws://127.0.0.1:7545";
   final String _privateKey =
-      "0x9ef8e5b39f1289f680040988f2364a0cbe8de767150feccabf1b36f2007ecded";
+      "0x3bda05dc6aeb6a40656c7b1b8869fb3c0bc58dccdd9a635ca569cce26a025b85";
 
   late Web3Client _client;
   late String _abiCode;

@@ -73,7 +73,9 @@ class MyApp extends StatelessWidget {
 
           home: BoardingScreen(),
         );
+        
       },
     );
+    
   }
 }
