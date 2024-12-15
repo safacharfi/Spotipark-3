@@ -1,5 +1,3 @@
-
-```markdown
 # Blockchain-Based SpotiPark App 🚗  
 **Smart Parking using Blockchain Technology**  
 
@@ -60,36 +58,34 @@ Clone the repository and navigate into the project folder:
 ```bash
 git clone <repository-url>
 cd <repository-folder>
-```  
+2. Install Dependencies
+Flutter 3.0.2
+Install Flutter from Flutter Installation Guide.
+Node.js
+Install Node.js from Node.js official website.
+3. Install Ganache and Truffle
+Install Truffle globally using npm:
 
-### 2. Install Dependencies  
-- **Flutter 3.0.2**  
-  Install Flutter from [Flutter Installation Guide](https://docs.flutter.dev/get-started/install).  
-- **Node.js**  
-  Install Node.js from [Node.js official website](https://nodejs.org/).  
-
-### 3. Install Ganache and Truffle  
-Install Truffle globally using npm:  
-```bash
+bash
+Copy code
 npm install -g truffle
-```  
-Download and set up **Ganache** from [Truffle Suite](https://trufflesuite.com/ganache/). Keep Ganache running in the background.
+Download and set up Ganache from Truffle Suite. Keep Ganache running in the background.
 
-### 4. Install Metamask  
-- Install the [Metamask Chrome extension](https://metamask.io/).  
-- Select the local network and import the accounts from Ganache into Metamask.  
+4. Install Metamask
+Install the Metamask Chrome extension.
+Select the local network and import the accounts from Ganache into Metamask.
+5. Compile and Migrate Smart Contracts
+Run the following commands to compile and migrate the smart contracts:
 
-### 5. Compile and Migrate Smart Contracts  
-Run the following commands to compile and migrate the smart contracts:  
-```bash
+bash
+Copy code
 truffle compile
 truffle migrate
-```  
+After the migration, copy the contract address shown in the output and paste it in the contractAddress variable located in ./lib/constant/constant.dart.
 
-After the migration, copy the **contract address** shown in the output and paste it in the `contractAddress` variable located in `./lib/constant/constant.dart`.  
-
-#### Example Migration Output:  
-```plaintext
+Example Migration Output:
+plaintext
+Copy code
 2_deploy_migration.js
 =====================
 
@@ -105,66 +101,60 @@ Replacing 'SmartParking'
 > Gas price:           20 gwei
 > Value sent:          0 ETH
 > Total cost:          0.07992454 ETH
-```  
+6. Update constant.dart Configuration
+Modify the following values in constant.dart:
 
-### 6. Update `constant.dart` Configuration  
-Modify the following values in `constant.dart`:  
-- **`contractAddress`**: Paste the contract address you obtained in the migration step.  
-- **`chainId`**: Set it to `'1337'` (local network ID).  
-- **`rpcUrl`**: Set it to `"http://127.0.0.1:7545"`.  
+contractAddress: Paste the contract address you obtained in the migration step.
+chainId: Set it to '1337' (local network ID).
+rpcUrl: Set it to "http://127.0.0.1:7545".
+7. Configure Mapbox API Key
+Create a Mapbox API key from Mapbox.
+Replace the mapBoxApiKey value in constant.dart with your generated API key.
 
-### 7. Configure Mapbox API Key  
-Create a Mapbox API key from [Mapbox](https://www.mapbox.com/).  
-Replace the `mapBoxApiKey` value in `constant.dart` with your generated API key.  
+8. Run the Flutter Web App
+Install the necessary Flutter dependencies:
 
-### 8. Run the Flutter Web App  
-Install the necessary Flutter dependencies:  
-```bash
+bash
+Copy code
 flutter pub get
-```  
+Run the application in web mode:
 
-Run the application in web mode:  
-```bash
+bash
+Copy code
 flutter run -d web-server --web-port 5555
-```  
+The app will be available at:
+http://localhost:5555/
 
-The app will be available at:  
-[http://localhost:5555/](http://localhost:5555/)  
+Screenshots 📸
+Splash Screen
 
----
 
-## Screenshots 📸  
+Homepage
 
-- **Splash Screen**  
-![Splash Screen](https://github.com/user-attachments/assets/3c289149-4cef-4405-9a6b-cf2cc01512a0)
 
-- **Homepage**  
-![Homepage](https://github.com/user-attachments/assets/536f4fc3-3dea-4805-92ae-56a3f0831b60)
+Choosing Your Role
 
-- **Choosing Your Role**  
-![Choosing Your Role](https://github.com/user-attachments/assets/799b2663-3148-4ea5-b604-dcedc7284266)
 
-- **User Mobile App Screenshots**  
-![User App 1](https://github.com/user-attachments/assets/d95ab422-be2b-4e65-9bf7-3d4bfda63d56)  
-![User App 2](https://github.com/user-attachments/assets/019e350c-de40-487e-9c75-0a0e583893fe)  
-![User App 3](https://github.com/user-attachments/assets/fb1d4887-d602-49b9-9180-712005a14784)  
-![User App 4](https://github.com/user-attachments/assets/c400ac98-293f-463b-ba45-02ed9e3d159f)  
-![User App 5](https://github.com/user-attachments/assets/f71ea755-0de7-4a7a-ac13-16e6671cb3ad)  
-![User App 6](https://github.com/user-attachments/assets/31330cc7-404c-4ef3-9fb1-ba9215d41577)  
-![User App 7](https://github.com/user-attachments/assets/db59e148-7e45-46d6-8490-660ce92be4c4)
-
-- **AI Option to Detect the License Plate**  
-![AI License Plate Detection](https://github.com/user-attachments/assets/e8032ddb-73eb-4b47-baca-9ee815aec50a)
+User Mobile App Screenshots
 
 
 
 
 
-## Author ✨  
-Developed by **Charfi Safa**.  
 
----
 
-## Additional Notes 📝  
+
+AI Option to Detect the License Plate
+
+
+Vehicle List
+(Image of vehicle list will appear here once uploaded)
+
+License 📜
+This project is licensed under the MIT License.
+
+Author ✨
+Developed by Charfi Safa.
+
+Additional Notes 📝
 Feel free to contribute to this project by submitting issues or creating pull requests!
-```
