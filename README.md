@@ -1,160 +1,141 @@
+
 # Blockchain-Based SpotiPark App 🚗  
 **Smart Parking using Blockchain Technology**  
 
-SpotiPark est une application décentralisée (DApp) qui utilise la blockchain pour fournir un système de stationnement intelligent, sécurisé et transparent. Cette application permet aux utilisateurs de réserver des places de stationnement tout en garantissant la sécurité des transactions grâce à la technologie blockchain.
+SpotiPark est une application décentralisée (DApp) qui utilise la blockchain pour offrir un système de stationnement intelligent, sécurisé et transparent. Cette application permet aux utilisateurs de réserver des places de stationnement tout en garantissant la sécurité des transactions grâce à la technologie blockchain.
 
-## Model Overview 🧠  
-Le modèle mis en place pour SpotiPark repose sur la combinaison de technologies blockchain (Ethereum et Polygon/Matic) et une application mobile Flutter pour une expérience utilisateur fluide. L'objectif principal est de permettre un système de stationnement intelligent, sécurisé, transparent, et décentralisé. Voici un aperçu des fonctionnalités principales et du flux de travail :
+## Table of Contents
+1. [Part 1: Blockchain-Based DApp](#part-1-blockchain-based-dapp)
+   - [Overview](#overview)
+   - [Smart Contracts](#smart-contracts)
+   - [Ethereum and Polygon](#ethereum-and-polygon)
+   - [User Roles](#user-roles)
+   - [Blockchain Transactions and Security](#blockchain-transactions-and-security)
+2. [Part 2: AI Integration for License Plate Recognition](#part-2-ai-integration-for-license-plate-recognition)
+   - [AI Model Overview](#ai-model-overview)
+   - [Technologies Used](#technologies-used)
+   - [Model Workflow](#model-workflow)
+3. [Getting Started](#getting-started)
+   - [Clone the Repository](#clone-the-repository)
+   - [Install Dependencies](#install-dependencies)
+   - [Configure and Run](#configure-and-run)
+4. [Screenshots](#screenshots)
+5. [License](#license)
+6. [Author](#author)
 
-### Smart Contract  
-Le modèle sous-jacent utilise des **contrats intelligents** pour gérer les transactions de réservation de places de stationnement. Les utilisateurs peuvent réserver, libérer, et consulter la disponibilité des places via des appels à ces contrats. Les transactions sont enregistrées sur la blockchain, garantissant leur transparence et leur sécurité.
+---
 
-- **Contract Address** : Une fois que vous déployez le contrat via Truffle, le contrat intelligent obtient une adresse unique qui est ensuite utilisée par l'application mobile pour interagir avec le contrat déployé sur la blockchain.
-- **Fonctionnalités du contrat intelligent** :  
-  - Réservation de places de stationnement
-  - Libération de places de stationnement
-  - Vérification de la disponibilité des places
-  - Historique des transactions pour assurer la transparence
+## Part 1: Blockchain-Based DApp 💻
 
-### AI Integration for License Plate Recognition 🤖  
-Une fonctionnalité avancée de l'application consiste à utiliser **l'intelligence artificielle (IA)** pour détecter les plaques d'immatriculation des véhicules. Cela permet aux utilisateurs de s'authentifier de manière sécurisée et de garantir que la place de stationnement est attribuée au bon véhicule. L'IA permet de vérifier les véhicules entrants et de leur attribuer des places de manière automatique.
+### Overview  
+Le modèle de SpotiPark repose sur une architecture **Blockchain** décentralisée. L'application permet aux utilisateurs de réserver et libérer des places de stationnement en toute transparence, tout en garantissant la sécurité et l'immuabilité des transactions via la technologie Blockchain. Le cœur de l'application repose sur un **smart contract** déployé sur le réseau Ethereum et étendu avec **Polygon (Matic)** pour la gestion des frais de transaction.
 
-- **Modèle de détection de plaques d'immatriculation** : Le modèle d'IA utilise des algorithmes de reconnaissance d'images pour détecter et extraire les plaques d'immatriculation des véhicules.
-- **Fonctionnement** : Une fois qu'un utilisateur arrive à une place de stationnement, l'application utilise l'IA pour capturer une image de la plaque d'immatriculation et la vérifier avec les informations de réservation sur la blockchain.
+### Smart Contracts 📝  
+Les **smart contracts** sont au cœur de l'application SpotiPark. Ils définissent les règles du système de réservation de stationnement. Le contrat intelligent gère les réservations, la vérification des places disponibles, et l'enregistrement des transactions sur la blockchain. 
+
+- **Fonctions du Smart Contract** :  
+  - **Réservation d'une place** : Permet à l'utilisateur de réserver une place en fonction de l'heure et de la date.  
+  - **Libération de la place** : L'utilisateur libère la place une fois qu'il a terminé.  
+  - **Vérification de la disponibilité** : Le contrat vérifie si une place est disponible avant qu'un utilisateur ne réserve.  
+  - **Historique des transactions** : Toutes les actions de réservation sont enregistrées sur la blockchain pour assurer la transparence.
+
+  Les contrats sont déployés à l'aide de **Truffle** et testés localement via **Ganache** avant d'être mis en production sur Ethereum.
+
+### Ethereum and Polygon 🌐  
+Le réseau **Ethereum** est utilisé pour la sécurité et la transparence des transactions. Polygon (anciennement Matic) est intégré pour réduire les frais de transaction tout en maintenant la sécurité d'Ethereum. Polygon permet des transactions plus rapides et moins coûteuses.
+
+- **Ethereum** :  
+  Ethereum est une plateforme de blockchain décentralisée qui permet d'exécuter des contrats intelligents. Les utilisateurs interagissent avec l'application via **Metamask** pour autoriser les transactions.
+
+- **Polygon (Matic)** :  
+  Polygon améliore la scalabilité de la blockchain Ethereum en permettant des transactions rapides et bon marché. Cela permet aux utilisateurs de profiter d'un réseau Ethereum sécurisé tout en réduisant les coûts liés aux interactions avec la blockchain.
 
 ### User Roles 🧑‍🤝‍🧑  
-Le système prend en charge différents rôles pour les utilisateurs :  
-1. **Client Utilisateur** :  
-   - Réserver une place de stationnement  
-   - Consulter la disponibilité des places  
-   - Gérer ses réservations  
-2. **Propriétaire de Place de Stationnement** :  
-   - Gérer la disponibilité des places  
-   - Vérifier les réservations
+L'application SpotiPark gère différents rôles pour les utilisateurs. Voici les deux rôles principaux :
 
-Les utilisateurs peuvent choisir leur rôle dans l'application mobile au démarrage, et les permissions et l'interface seront adaptées en conséquence.
+1. **Utilisateur final** :  
+   - Réserver une place de stationnement.
+   - Libérer une place de stationnement.
+   - Consulter la disponibilité des places.
+   - Visualiser l'historique des réservations.
+
+2. **Propriétaire de place de stationnement** :  
+   - Gérer la disponibilité des places (activer ou désactiver une place).
+   - Vérifier les réservations et voir l'historique.
 
 ### Blockchain Transactions and Security 🔐  
-L'application utilise **Ethereum** et **Polygon/Matic** comme chaînes de blocs pour effectuer les transactions. Cela permet de garantir que les réservations sont sécurisées et que les informations sont enregistrées de manière immuable.
+La sécurité des transactions est assurée par le réseau Ethereum, qui utilise la **cryptographie** pour valider et sécuriser les transactions. Les utilisateurs doivent signer leurs transactions via **Metamask**, une extension de navigateur, ce qui garantit l'authenticité de chaque réservation ou modification de statut.
 
-- **Ethereum pour la sécurité** : Toutes les transactions de réservation sont enregistrées sur Ethereum, offrant une sécurité robuste.
-- **Polygon/Matic pour les frais réduits** : Polygon est utilisé pour réduire les frais de transaction tout en maintenant la sécurité de la blockchain Ethereum.
-
----
-
-## Technology Stack 💻  
-- **Ethereum Blockchain**  
-- **Polygon/Matic**  
-- **Web3Dart**  
-- **Flutter**  
-- **Metamask**  
+- **Ethereum pour la sécurité** : Toutes les transactions sont enregistrées sur Ethereum, offrant une sécurité robuste.
+- **Polygon pour la réduction des coûts** : Les transactions sur Polygon sont plus rapides et moins coûteuses, ce qui rend le processus plus fluide pour les utilisateurs.
 
 ---
 
-## To Run Application Locally 🛠️  
+## Part 2: AI Integration for License Plate Recognition 🤖
 
-### 1. Clone the Repository  
+### AI Model Overview  
+SpotiPark intègre un modèle d'intelligence artificielle (IA) pour la reconnaissance des plaques d'immatriculation. Cette fonctionnalité permet de sécuriser l'accès au parking et de vérifier que la place réservée est attribuée au bon véhicule.
+
+- **Objectif** : Lorsqu'un utilisateur arrive sur le parking, l'application utilise un modèle de détection d'image pour capturer la plaque d'immatriculation du véhicule et la comparer avec les réservations existantes sur la blockchain. Cela permet de s'assurer que la place réservée est utilisée par le bon véhicule.
+
+### Technologies Used 🧰  
+- **TensorFlow** : Utilisé pour le développement du modèle de reconnaissance d'images. TensorFlow est une bibliothèque de machine learning open-source qui permet d'entraîner et de déployer des modèles d'IA.
+- **OpenCV** : Bibliothèque open-source pour la manipulation d'images. OpenCV est utilisé pour le traitement des images des plaques d'immatriculation capturées par la caméra.
+- **Keras** : API haut niveau pour TensorFlow, utilisée pour créer, entraîner et tester des modèles d'apprentissage profond pour la reconnaissance des plaques.
+- **YOLO (You Only Look Once)** : Modèle de détection d'objets utilisé pour détecter et localiser la plaque d'immatriculation dans les images en temps réel. YOLO est utilisé pour sa rapidité et son efficacité dans la détection d'objets.
+- **Tesseract OCR** : Outil de reconnaissance optique de caractères utilisé pour extraire les numéros de la plaque d'immatriculation à partir de l'image.
+
+### Model Workflow 🧑‍💻
+
+1. **Capture d'image** : Lorsqu'un véhicule arrive, l'application utilise la caméra pour capturer l'image de la plaque d'immatriculation.
+2. **Prétraitement de l'image** : L'image est ensuite traitée avec **OpenCV** pour améliorer sa qualité et faciliter la détection de la plaque.
+3. **Détection de la plaque** : Le modèle YOLO détecte et localise la plaque d'immatriculation dans l'image capturée.
+4. **Reconnaissance du texte** : Le texte sur la plaque d'immatriculation est extrait à l'aide de **Tesseract OCR**.
+5. **Vérification de la réservation** : L'application vérifie si le numéro de plaque détecté correspond à une réservation existante dans la base de données blockchain. Si une correspondance est trouvée, l'accès au parking est accordé.
+
+### AI Model Deployment 🌍  
+Le modèle IA est intégré directement dans l'application mobile, fonctionnant en temps réel pour détecter les plaques d'immatriculation et effectuer des vérifications instantanées. Il est hébergé sur un serveur central qui communique avec l'application via une API pour garantir la précision et la rapidité du processus.
+
+---
+
+## Getting Started 🛠️
+
+### Clone the Repository  
 Clone the repository and navigate into the project folder:  
 ```bash
 git clone <repository-url>
 cd <repository-folder>
-2. Install Dependencies
-Flutter 3.0.2
-Install Flutter from Flutter Installation Guide.
-Node.js
-Install Node.js from Node.js official website.
-3. Install Ganache and Truffle
-Install Truffle globally using npm:
+```  
 
-bash
-Copy code
-npm install -g truffle
-Download and set up Ganache from Truffle Suite. Keep Ganache running in the background.
+### Install Dependencies  
+- **Flutter** : Install Flutter from [Flutter Installation Guide](https://docs.flutter.dev/get-started/install).  
+- **Node.js** : Install Node.js from [Node.js official website](https://nodejs.org/).  
 
-4. Install Metamask
-Install the Metamask Chrome extension.
-Select the local network and import the accounts from Ganache into Metamask.
-5. Compile and Migrate Smart Contracts
-Run the following commands to compile and migrate the smart contracts:
+### Configure and Run  
+Follow the steps to set up **Truffle**, **Ganache**, **Metamask**, and configure the **Mapbox API** key. Then, run the following commands to deploy the smart contract and start the mobile app.
 
-bash
-Copy code
-truffle compile
-truffle migrate
-After the migration, copy the contract address shown in the output and paste it in the contractAddress variable located in ./lib/constant/constant.dart.
+---
 
-Example Migration Output:
-plaintext
-Copy code
-2_deploy_migration.js
-=====================
+## Screenshots 📸  
 
-Replacing 'SmartParking'
-----------------
-> transaction hash:    0x427b2b402f767ac6a90334ab3c687b086b274de747fe10d6e194743b15057d78
-> Blocks: 0            Seconds: 0
-> Contract address:    0xed690C24C60A48F8A9819c9A15AD75B70CFBEa5a
-> Block number:        3
-> Block timestamp:     1650602828
-> Account:             0x33e94e4619f0AecDf81e9676Eb82c109FBa53356
-> Gas used:            3996227
-> Gas price:           20 gwei
-> Value sent:          0 ETH
-> Total cost:          0.07992454 ETH
-6. Update constant.dart Configuration
-Modify the following values in constant.dart:
+- **Splash Screen**  
+![Splash Screen](https://github.com/user-attachments/assets/3c289149-4cef-4405-9a6b-cf2cc01512a0)
 
-contractAddress: Paste the contract address you obtained in the migration step.
-chainId: Set it to '1337' (local network ID).
-rpcUrl: Set it to "http://127.0.0.1:7545".
-7. Configure Mapbox API Key
-Create a Mapbox API key from Mapbox.
-Replace the mapBoxApiKey value in constant.dart with your generated API key.
+- **Homepage**  
+![Homepage](https://github.com/user-attachments/assets/536f4fc3-3dea-4805-92ae-56a3f0831b60)
 
-8. Run the Flutter Web App
-Install the necessary Flutter dependencies:
-
-bash
-Copy code
-flutter pub get
-Run the application in web mode:
-
-bash
-Copy code
-flutter run -d web-server --web-port 5555
-The app will be available at:
-http://localhost:5555/
-
-Screenshots 📸
-Splash Screen
-
-
-Homepage
-
-
-Choosing Your Role
-
-
-User Mobile App Screenshots
+- **Choosing Your Role**  
+![Choosing Your Role](https://github.com/user-attachments/assets/799b2663-3148-4ea5-b604-dcedc7284266)
 
 
 
 
 
+## Author ✨  
+Developed by **Charfi Safa**.  
 
+---
 
-
-AI Option to Detect the License Plate
-
-
-Vehicle List
-(Image of vehicle list will appear here once uploaded)
-
-License 📜
-This project is licensed under the MIT License.
-
-Author ✨
-Developed by Charfi Safa.
-
-Additional Notes 📝
+## Additional Notes 📝  
 Feel free to contribute to this project by submitting issues or creating pull requests!
+
